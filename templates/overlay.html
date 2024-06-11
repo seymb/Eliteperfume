@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/overlay.css">
+        <title>Overlay Form</title>
+    </head>
+    <body>
+        <div class="buttons-container">
+            <button>Добавить товар</button>
+            <button class="overlay-button" onclick="showOverlay('overlay1')">Изменить товар</button>
+            <button class="overlay-button" onclick="showOverlay('overlay2')">Удалить товар</button>    
+        </div>
+
+        <div class="overlay" id="overlay1">
+            <form class="productForm" method="post" action="{{ url_for('submit_form') }}" enctype="multipart/form-data">
+                <div class="productdata">
+                    <div class="title">
+                        <h3>Артикул</h3>
+                        <label class="article">
+                            <input type="text" id="article" name="article" placeholder="Введите текст">
+                        </label>
+                    </div>
+                    <div class="title">
+                        <h3>Наименование товара</h3>
+                        <label class="productname">
+                            <input type="text" id="productname" name="productname" placeholder="Введите текст">
+                        </label>
+                    </div>
+                    <div class="title">
+                        <h3>Объем</h3>
+                        <label class="volume">
+                            <input type="text" id="volume" name="volume" placeholder="Введите текст">
+                        </label>
+                    </div>
+                    <div class="title">
+                        <h3>Кол-во покупок</h3>
+                        <label class="purchases">
+                            <input type="text" id="purchases" name="purchases" placeholder="Введите текст">
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="admit1" id="submitForm">
+                    <h3>Изменить</h3>
+                </button>
+            </form>
+        </div>
+
+        <div class="overlay" id="overlay2">
+            <form class="productForm" method="post" action="{{ url_for('nesubmit_form') }}" enctype="multipart/form-data">
+                <div class="productdata">
+                    <div class="title">
+                        <h3>Артикул</h3>
+                        <label class="article">
+                            <input type="text" id="article" name="article" placeholder="Введите текст">
+                        </label>
+                    </div>
+                    <div class="title">
+                        <h3>Наименование товара</h3>
+                        <label class="productname">
+                            <input type="text" id="productname" name="productname" placeholder="Введите текст">
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="admit1" id="nesubmit_form">
+                    <h3>Удалить</h3>
+                </button>
+            </form>
+        </div>
+        <script>
+            document.getElementById('submitForm').addEventListener('click', function (event) {
+                event.preventDefault();
+
+                const form = document.querySelector('.productForm');
+                const formData = new FormData(form);
+
+                // Создаем объект XMLHttpRequest
+                const xhr = new XMLHttpRequest();
+
+                // Открываем асинхронное соединение
+                xhr.open("POST", "{{ url_for('submit_form') }}", true);
+
+                // Устанавливаем обработчик события загрузки
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        console.log('Server response:', xhr.responseText);
+                        alert('Данные успешно изменены в базе данных!');
+                    } else {
+                        console.error('Ошибка при отправке запроса:', xhr.statusText);
+                        alert('Произошла ошибка при изменение данных!');
+                    }
+                };
+
+                // Отправляем данные формы
+                xhr.send(formData);
+            });
+            document.getElementById('nesubmit_form').addEventListener('click', function (event) {
+                event.preventDefault();
+
+                const form = document.querySelector('.productForm');
+                const formData = new FormData(form);
+
+                // Создаем объект XMLHttpRequest
+                const xhr = new XMLHttpRequest();
+
+                // Открываем асинхронное соединение
+                xhr.open("POST", "{{ url_for('nesubmit_form') }}", true);
+
+                // Устанавливаем обработчик события загрузки
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        console.log('Server response:', xhr.responseText);
+                        alert('Данные успешно удалены из базы данных!');
+                    } else {
+                        console.error('Ошибка при отправке запроса:', xhr.statusText);
+                        alert('Произошла ошибка при удаление данных!');
+                    }
+                };
+
+                // Отправляем данные формы
+                xhr.send(formData);
+            });
+
+            function showOverlay(overlayId) {
+                    // Сначала скрываем все оверлеи
+                    var overlays = document.querySelectorAll('.overlay');
+                    overlays.forEach(function(overlay) {
+                        overlay.style.display = 'none';
+                    });
+                    // Затем показываем выбранный оверлей
+                    var selectedOverlay = document.getElementById(overlayId);
+                    selectedOverlay.style.display = 'block';
+                }
+
+            document.addEventListener('click', function(event) {
+                var isOverlayButton = event.target.classList.contains('overlay-button');
+                var overlays = document.querySelectorAll('.overlay');
+                overlays.forEach(function(overlay) {
+                    if (!overlay.contains(event.target) && !isOverlayButton) {
+                        overlay.style.display = 'none';
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

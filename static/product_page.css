@@ -1,0 +1,54 @@
+@import url("/static/style.css");
+
+
+.product{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 80px;
+}
+
+.product_img img{
+    height: 75%;
+    width: 75%;
+}
+
+.product_details h5{
+    text-align: start;
+    padding: 10px 5px;
+    color: #7f7f7f;
+}
+
+.product_details_name{
+    border-bottom: 0.3px solid #7F7F7F;
+}
+
+.char{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.char h3{
+    padding: 5px;
+}
+
+.descript{
+    display: block;
+    width: 433px;
+    height: 132px;
+    overflow: hidden;
+}
+
+.descript h3{
+    text-align: start;
+}
+
+.descript .text-preview {
+    display: inline-block; /* Делаем span блоковым элементом, чтобы можно было применить отступ */
+    text-indent: 20px; /* Желаемый отступ */
+}
+
+.about-product{
+    padding: 100px 20px;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Поиск по номеру</title>
+        <style>
+            img {
+                max-width: 407px;
+                max-height: 424px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Поиск по номеру</h2>
+        <form action="{{ url_for('search_by_number') }}" method="post">
+            <label for="number">Введите номер:</label>
+            <input type="text" id="number" name="number" required>
+            <button type="submit">Поиск</button>
+        </form>
+
+        {% if images %}
+            <h3>Найденные изображения:</h3>
+            {% for image in images %}
+                <img src="{{ url_for('get_image', product_id=image['ID']) }}" alt="Product Image">
+            {% endfor %}
+        {% endif %}
+
+
+
+    </body>
+</html>

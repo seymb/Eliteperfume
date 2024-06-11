@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="/static/layout.css">
+        <link rel="icon" href="/static/Photo/Eliteporfume.ico">
+        <title>Admin Elitepefrume Atyrau</title>
+    </head>
+    <body>
+        <header>
+            <a href="https://www.youtube.com/watch?v=QgOXIEhHU1Y&ab_channel=Diplo">
+                <h2><img src="/static/Photo/Logo.png">
+                Elitepefrume Atyrau</h2>
+            </a>
+        </header>
+        <form class="productForm" method="post" action="{{ url_for('submit_form') }}" enctype="multipart/form-data">
+            <div class="product-wrapper">
+                <div class="productimage">
+                    <input type="file" id="fileInput" name="fileInput" accept="image/*">
+                </div>
+                <div class="productdata">
+                    <div class="title">
+                        <h3>Артикул</h3>
+                        <label class="article">
+                            <input type="text" id="article" name="article" placeholder="Введите текст">
+                        </label>
+                    </div>
+                    <div class="title">
+                        <h3>Категория</h3>
+                        <label class="category">
+                            <input type="text" id="category" name="category" placeholder="Введите текст">
+                        </label>
+                    </div>
+                    <div class="title">
+                        <h3>Наименование товара</h3>
+                        <label class="productname">  
+                            <input type="text" id="productname" name="productname" placeholder="Введите текст">
+                        </label>
+                    </div>
+                    <div class="title">
+                        <h3>Объем</h3>
+                        <label class="volume">
+                            <input type="text" id="volume" name="volume" placeholder="Введите текст">
+                        </label>
+                    </div>
+                    <h3>Цены</h3>
+                    <div class="title">
+                        <h3>5 мл</h3>
+                        <label class="price">  
+                            <input type="text" id="price" name="price" placeholder="Введите текст">
+                        </label>
+                        <h3>10 мл</h3>
+                        <label class="price10">  
+                            <input type="text" id="price10" name="price10" placeholder="Введите текст">
+                        </label>
+                        <h3>30 мл</h3>
+                        <label class="price30">  
+                            <input type="text" id="price30" name="price30" placeholder="Введите текст">
+                        </label>
+                        <h3>50 мл</h3>
+                        <label class="price50">  
+                            <input type="text" id="price50" name="price50" placeholder="Введите текст">
+                        </label>
+                        <h3>100 мл</h3>
+                        <label class="price100">  
+                            <input type="text" id="price100" name="price100" placeholder="Введите текст">
+                        </label>
+                    </div>
+                    <div class="title">
+                        <h3>Производство</h3>
+                        <label class="production">  
+                            <input type="text" id="production" name="production" placeholder="Введите текст">
+                        </label>
+                    </div>
+                    <div class="title">
+                        <h3>Торговый дом</h3>
+                        <label class="tradinghouse">  
+                            <input type="text" id="tradinghouse" name="tradinghouse" placeholder="Введите текст">
+                        </label>
+                    </div>
+                    <div class="title">
+                        <h3>Год создания</h3>
+                        <label class="creation">  
+                            <input type="text" id="creation" name="creation" placeholder="Введите текст">
+                        </label>
+                    </div>
+                    <div class="title">
+                        <h3>Назначение</h3>
+                        <label class="purpose">  
+                            <input type="text" id="purpose" name="purpose" placeholder="Введите текст">
+                        </label>
+                    </div>
+                    <div class="title">
+                        <h3>Тип</h3>
+                        <label class="productType">  
+                            <input type="text" id="productType" name="productType" placeholder="Введите текст">
+                        </label>
+                    </div>
+                    <div class="title">
+                        <h3>Ноты аромата</h3>
+                        <label class="aromanotes">  
+                            <input type="text" id="aromanotes" name="aromanotes" placeholder="Введите текст">
+                        </label>
+                    </div>
+                    <div class="title">
+                        <h3>Кол-во покупок</h3>
+                        <label class="purchases">  
+                            <input type="text" id="purchases" name="purchases" placeholder="Введите текст">
+                        </label>
+                    </div>
+                    <div class="overview">
+                        <h3>Описание</h3>
+                        <textarea id="overview" name="overview" placeholder="Введите текст"></textarea>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="admit1" id="submitForm">
+                <h1>Добавить</h1>
+            </button>
+        </form>
+        <script>
+            document.querySelector('.productForm').addEventListener('submit', function (event) {
+                const fileInput = document.getElementById('fileInput');
+                if (fileInput.files.length === 0) {
+                    event.preventDefault();
+                    alert('Пожалуйста, выберите изображение');
+                }
+            });
+        </script>
+    </body>
+</html>

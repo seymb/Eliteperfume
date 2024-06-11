@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/women_perf.css">
+        <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
+        <link rel="icon" href="/static/Photo/Eliteporfume.ico">
+        <title>Elitepefrume Atyrau</title>
+    </head>
+    <body>
+        <header>
+            <a href="https://youtube.com">
+                <h2><img src="/static/Photo/Logo.png">
+                Elitepefrume Atyrau</h2>
+            </a>
+        </header>
+        <div class="navbar">
+            <ul>
+                <li><a href="{{ url_for('admin_page') }}">Мужская парфюмерия</a></li>
+                <li id='home'>Женская парфюмерия</li>
+                <li><a href="#">Ароматизированные свечи</a></li>
+                <li><a href="#">Парфюмированные диффузоры</a></li>
+                <li><a href="#">Диффузоры Ареон</a></li>
+            </ul>
+        </div>
+        <div class="gender">
+            <div class="male">
+                <img src="/static/Photo/male.png">
+                <h3>Мужская парфюмерия</h3>
+            </div>
+            <div class="female">
+                <img src="/static/Photo/image female.png">
+                <h3>Женская парфюмерия</h3>
+            </div>
+        </div>
+        <div class="filter">
+            <div class="filter1">
+                <h3>Фильтр</h3>
+            </div>
+            <div class="popular-price">
+                <h3>Популярное</h3>
+                <h3>Цена</h3>
+            </div>
+        </div>
+        <div class="product_page">
+            {% for product in products %}
+                <div class="product-info">
+                    <a href="{{ url_for('product_details', product_id=product['ID']) }}" class="product-link" data-productID="{{ product['ID'] }}">
+                        <img src="{{ url_for('get_image', product_id=product['ID']) }}" alt="Product Image">
+                        <h3>{{ product['ProductName'] }}</h3>
+                        <!-- <h3>{{ product['Volume'] }} {{ product['Price'] }}</h3> -->
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="ender">
+            <h2>О компании</h2>
+            <h2>Адрес магазина</h2>
+            <div class="contacts">
+                <h2>Контакты</h2>
+                <img src="/static/Photo/bxl-whatsapp.svg">
+                <img src="/static/Photo/bxl-instagram.svg"> 
+            </div>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var productLinks = document.querySelectorAll('.product-link');
+
+                productLinks.forEach(function (link) {
+                    link.addEventListener('click', function (event) {
+                        event.preventDefault();
+
+                        var productID = this.dataset.productid; // изменено на dataset.productid
+                        window.location.href = "/product_details/" + productID;
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

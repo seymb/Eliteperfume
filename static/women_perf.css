@@ -1,0 +1,122 @@
+@import url("/static/style.css");
+
+/* #home{
+    padding: 3px 10px;
+    border-radius: 10px;
+    background-color: antiquewhite;
+} */
+
+h3{
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.filter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 64px 100px;
+    padding: 20px 40px;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.popular-price{
+    display: flex;
+}
+.popular-price h3{
+    padding-right: 30px;
+}
+.popular-price h3:last-child{
+    padding-right: 0;
+}
+
+
+
+.product_page{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 100px;
+    /* justify-content: space-between; Распределение по ширине экрана */
+    align-items: center; /* Выравнивание по верхнему краю */
+}
+
+.product-info {
+    margin: 10px;
+    padding: 10px;
+    /* border: 1px solid #ccc; */
+    border-radius: 5px;
+    width: calc(25% - 20px); /* Ширина колонки с отступами */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+a{
+    color: black;
+    text-decoration: none;    
+}
+
+.product-info img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.ender{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 160px;
+    margin: 100px 0;
+    padding: 100px;
+    background: #ededed;;
+}
+
+.contacts{
+    text-align: center;
+}
+
+/* Добавим стили для мобильных устройств */
+@media only screen and (max-width: 600px) {
+    .navbar ul{
+        display: none;
+    }
+    .filter {
+        margin: 20px 10px;
+        padding: 10px;
+    }
+    .product_page {
+        margin: 0 10px;
+    }
+    .product-info {
+        width: calc(50% - 20px);
+    }
+}
+
+/* Добавим стили для планшетов */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .filter {
+        margin: 40px 20px;
+        padding: 15px;
+    }
+    
+    .product_page {
+        margin: 0 20px;
+    }
+    .product-info {
+        width: calc(33.33% - 20px);
+    }
+}
+
+/* Добавим стили для ноутбуков и больших экранов */
+@media only screen and (min-width: 1025px) {
+    .filter {
+        margin: 64px 100px;
+        padding: 20px 40px;
+    }
+    .product_page {
+        margin: 0 100px;
+    }
+    .product-info {
+        width: calc(25% - 20px);
+    }
+}

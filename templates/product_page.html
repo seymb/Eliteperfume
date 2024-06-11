@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="/static/product_page.css">
+        <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
+        <link rel="icon" href="/static/Photo/Eliteporfume.ico">
+        <title>Admin Elitepefrume Atyrau</title>
+    </head>
+    <body>
+        <header>
+            <a href="https://www.youtube.com/watch?v=QgOXIEhHU1Y&ab_channel=Diplo">
+                <h2><img src="/static/Photo/Logo.png">
+                Elitepefrume Atyrau</h2>
+            </a>
+        </header>
+        <div class="navbar">
+            <ul>
+                <li><a href="">Мужская парфюмерия</a></li>
+                <li><a href="">Женская парфюмерия</a></li>
+                <li><a href="">Ароматизированные свечи</a></li>
+                <li><a href="">Парфюмированные диффузоры</a></li>
+                <li><a href="">Диффузоры Ареон</a></li>
+            </ul>
+        </div>
+        <div class="product">
+            <div class="product_img">
+                <img src="{{ url_for('get_image', product_id=product['ID']) }}">
+            </div>
+            <div class="product_details">
+                <div class="product_details_name">
+                    <h1>{{ product['ProductName'] }}</h1>
+                    <h5>Код товара: {{ product['Article'] }}</h5>
+                </div>
+                <div class="char">
+                    <div class="volume">
+                        <h3>Объем</h3>
+                        <h3>{{ product['Volume'] }} мл</h3>
+                        <h3>10 мл</h3>
+                        <h3>30 мл</h3>
+                        <h3>50 мл</h3>
+                        <h3>100 мл</h3>
+                    </div>
+                    <div class="price">
+                        <h3>Цена</h3>
+                        <h3>{{ product['Price'] }} Р</h3>
+                        <h3>{{ product['Price10'] }} Р</h3>
+                        <h3>{{ product['Price30'] }} Р</h3>
+                        <h3>{{ product['Price50'] }} Р</h3>
+                        <h3>{{ product['Price100'] }} Р</h3>
+                    </div>
+                </div>
+                <div class="descript">
+                    <h3 class="text-preview">{{ product['Descript'] }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="about-product">
+            <h1>О товаре</h1>
+            <h4>Производство: {{ product['Production'] }}</h4>
+            <h4>Торговый дом: {{ product['TradingHouse'] }}</h4>
+            <h4>Год создания: {{ product['DateofCreation'] }}</h4>
+            <h4>Назначение: {{ product['Assignment'] }}</h4>
+            <h4>Тип: {{ product['ProductType'] }}</h4>
+            <h4>Ноты аромата: {{ product['FlavorNotes'] }}</h4>
+        </div>
+        <div class="ender">
+            <h2>О компании</h2>
+            <h2>Адрес магазина</h2>
+            <div class="contacts">
+                <h2>Контакты</h2>
+                <img src="/static/Photo/bxl-whatsapp.svg">
+                <a href="https://www.youtube.com/watch?v=QgOXIEhHU1Y&ab_channel=Diplo">
+                    <img src="/static/Photo/bxl-instagram.svg">
+                </a>
+            </div>
+        </div>
+    </body>
+</html>

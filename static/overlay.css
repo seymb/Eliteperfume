@@ -1,0 +1,47 @@
+@import url("/static/layout.css");
+
+.buttons-container {
+    margin-bottom: 20px;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 80%;
+    max-height: 80%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+#overlay1 {
+    width: 850px;
+    height: 320px;
+}
+
+#overlay2 {
+    width: 850px;
+    height: 230px;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%
+}
+
+.buttons-container button {
+    width: 300px; /* Задаем ширину кнопок */
+    height: 55px; /* Задаем высоту кнопок */
+    margin-bottom: 15px;
+}
+
+.admit1 {
+    width: 200px; /* Задаем желаемую ширину кнопок */
+    height: 50px; /* Задаем желаемую высоту кнопок */
+}
